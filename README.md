@@ -13,3 +13,9 @@
 ### 03_AbstractFactory(抽象工厂模式)
 
 ### 04_Builder(建造者模式)
+
+### 15_Strategy(策略模式)
+
+### 16_Flyweight(享元模式)
+
+### 20_Adapter(适配器模式)
