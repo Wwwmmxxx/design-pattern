@@ -1,3 +1,3 @@
-module github.com/Wwwmmxxx/design-pattern/16
+module github.com/Wwwmmxxx/design-pattern/flyweight
 
 go 1.19
