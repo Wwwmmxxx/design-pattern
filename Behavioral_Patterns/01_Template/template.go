@@ -7,6 +7,7 @@ type WorkInterface interface {
 	Work()
 	Sleep()
 }
+
 type Worker struct {
 	WorkInterface
 }
