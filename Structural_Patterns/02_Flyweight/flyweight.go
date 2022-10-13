@@ -1,26 +1,59 @@
 package main
 
-type FlyWeight struct {
-	Name string
+import "fmt"
+
+type ImageFlyweightFactory struct {
+	maps map[string]*ImageFlyweight
 }
 
-func NewFlyWeight(name string) *FlyWeight {
-	return &FlyWeight{Name: name}
-}
+var imageFactory *ImageFlyweightFactory
 
-type FlyWeightFactory struct {
-	pool map[string]*FlyWeight
-}
-
-func NewFlyWeightFactory() *FlyWeightFactory {
-	return &FlyWeightFactory{pool: make(map[string]*FlyWeight)}
-}
-
-func (f *FlyWeightFactory) GetFlyWeight(name string) *FlyWeight {
-	weight, ok := f.pool[name]
-	if !ok {
-		weight = NewFlyWeight(name)
-		f.pool[name] = weight
+func GetImageFlyweightFactory() *ImageFlyweightFactory {
+	if imageFactory == nil {
+		imageFactory = &ImageFlyweightFactory{
+			maps: make(map[string]*ImageFlyweight),
+		}
 	}
-	return weight
+	return imageFactory
+}
+
+func (f *ImageFlyweightFactory) Get(filename string) *ImageFlyweight {
+	image := f.maps[filename]
+	if image == nil {
+		image = NewImageFlyweight(filename)
+		f.maps[filename] = image
+	}
+
+	return image
+}
+
+type ImageFlyweight struct {
+	data string
+}
+
+func NewImageFlyweight(filename string) *ImageFlyweight {
+	// Load image file
+	data := fmt.Sprintf("image data %s", filename)
+	return &ImageFlyweight{
+		data: data,
+	}
+}
+
+func (i *ImageFlyweight) Data() string {
+	return i.data
+}
+
+type ImageViewer struct {
+	*ImageFlyweight
+}
+
+func NewImageViewer(filename string) *ImageViewer {
+	image := GetImageFlyweightFactory().Get(filename)
+	return &ImageViewer{
+		ImageFlyweight: image,
+	}
+}
+
+func (i *ImageViewer) Display() {
+	fmt.Printf("Display: %s\n", i.Data())
 }
