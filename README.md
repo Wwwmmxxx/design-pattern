@@ -10,16 +10,21 @@ graph LR;
 / --> Behavioral_Patterns
 Behavioral_Patterns --> 01_Template
 Behavioral_Patterns --> 02_Strategy
+Behavioral_Patterns --> 03_Command
+Behavioral_Patterns --> 04_Interpreter
 
 / --> Creational_Patterns
 Creational_Patterns --> 01_SimpleFactory
 Creational_Patterns --> 02_FactoryMethod
 Creational_Patterns --> 03_AbstractFactory
 Creational_Patterns --> 04_Builder
+Creational_Patterns --> 05_Prototype
 
 / --> Structural_Patterns
 Structural_Patterns --> 01_Adapter
 Structural_Patterns --> 02_Flyweight
+Structural_Patterns --> 03_Facade
+Structural_Patterns --> 04_Decorator
 ```
 
 # 1. Behavioral_Patterns(行为型模式)
@@ -85,3 +90,7 @@ Structural_Patterns --> 02_Flyweight
 ## 3.3 Facade(外观模式)
 
 外观模式（Facade Pattern）隐藏系统的复杂性, 并向客户端提供了一个客户端可以访问系统的接口. 这种类型的设计模式属于结构型模式, 它向现有的系统添加一个接口, 来隐藏系统的复杂性.
+
+## 3.4 Decorator(装饰器模式)
+
+装饰器模式（Decorator Pattern）允许向一个现有的对象添加新的功能，同时又不改变其结构。这种类型的设计模式属于结构型模式，它是作为现有的类的一个包装。
