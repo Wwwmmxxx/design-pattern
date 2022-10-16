@@ -27,6 +27,7 @@ Structural_Patterns --> 01_Adapter
 Structural_Patterns --> 02_Flyweight
 Structural_Patterns --> 03_Facade
 Structural_Patterns --> 04_Decorator
+Structural_Patterns --> 05_Bridge
 ```
 
 # 1. Behavioral_Patterns(行为型模式)
@@ -95,4 +96,8 @@ Structural_Patterns --> 04_Decorator
 
 ## 3.4 Decorator(装饰器模式)
 
-装饰器模式（Decorator Pattern）允许向一个现有的对象添加新的功能，同时又不改变其结构。这种类型的设计模式属于结构型模式，它是作为现有的类的一个包装。
+装饰器模式（Decorator Pattern）允许向一个现有的对象添加新的功能, 同时又不改变其结构。这种类型的设计模式属于结构型模式，它是作为现有的类的一个包装。
+
+## 3.5 Bridge(桥接模式)
+
+桥接（Bridge）是用于把抽象化与实现化解耦，使得二者可以独立变化。这种类型的设计模式属于结构型模式，它通过提供抽象化和实现化之间的桥接结构，来实现二者的解耦。

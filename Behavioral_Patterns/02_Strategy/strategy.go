@@ -2,44 +2,44 @@ package main
 
 import "fmt"
 
-type Strategy interface {
-	Execute()
+type Payment struct {
+	context  *PaymentContext
+	strategy PaymentStrategy
 }
 
-type strategyA struct {
+type PaymentContext struct {
+	Name, CardID string
+	Money        int
 }
 
-func NewStrategyA() Strategy {
-	return &strategyA{}
+func NewPayment(name, cardid string, money int, strategy PaymentStrategy) *Payment {
+	return &Payment{
+		context: &PaymentContext{
+			Name:   name,
+			CardID: cardid,
+			Money:  money,
+		},
+		strategy: strategy,
+	}
 }
 
-func (s *strategyA) Execute() {
-	fmt.Println("A plan executed.")
+func (p *Payment) Pay() {
+	p.strategy.Pay(p.context)
 }
 
-type strategyB struct {
+type PaymentStrategy interface {
+	Pay(*PaymentContext)
 }
 
-func (s *strategyB) Execute() {
-	fmt.Println("B plan executed.")
+type Cash struct{}
+
+func (*Cash) Pay(ctx *PaymentContext) {
+	fmt.Printf("Pay $%d to %s by cash", ctx.Money, ctx.Name)
 }
 
-func NewStrategyB() Strategy {
-	return &strategyB{}
-}
+type Bank struct{}
 
-type Context struct {
-	strategy Strategy
-}
+func (*Bank) Pay(ctx *PaymentContext) {
+	fmt.Printf("Pay $%d to %s by bank account %s", ctx.Money, ctx.Name, ctx.CardID)
 
-func NewContext() *Context {
-	return &Context{}
-}
-
-func (c *Context) SetStrategy(strategy Strategy) {
-	c.strategy = strategy
-}
-
-func (c *Context) Execute() {
-	c.strategy.Execute()
 }
