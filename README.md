@@ -28,6 +28,8 @@ Structural_Patterns --> 02_Flyweight
 Structural_Patterns --> 03_Facade
 Structural_Patterns --> 04_Decorator
 Structural_Patterns --> 05_Bridge
+Structural_Patterns --> 06_Proxy
+
 ```
 
 # 1. Behavioral_Patterns(行为型模式)
