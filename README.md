@@ -1,3 +1,5 @@
+[Toc]
+
 > 参照资料: 
 > 1. https://zhuanlan.zhihu.com/p/297029161
 > 2. https://www.runoob.com/design-pattern/design-pattern-tutorial.html
